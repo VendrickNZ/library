@@ -1,4 +1,22 @@
+const cardContainer = document.querySelector(".card-container");
+const addNewBook = document.getElementById('#add-book');
+
+addNewBook.addEventListener("click", () => {
+    createCard();
+})
+
 let myLibrary = [];
+
+function createCard() {
+    const cardBody = document.createElement('div');
+    const cardTitleAndAuthor = document.createElement('h4');
+    const pages = document.createElement('h5');
+    const read = document.createElement('button');
+    cardBody.classList.add('card');
+    cardTitleAndAuthor.classList.add('card');
+    pages.classList.add('card');
+    read.classList.add('card');
+}
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -28,3 +46,5 @@ addBookToLibrary(toKillAMockingbird);
 for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i].title);
 }
+
+
