@@ -24,3 +24,7 @@ html {
     width: 100%;
     padding: var(--spacing-sm);
 }
+
+a {
+    text-decoration: none;
+}
