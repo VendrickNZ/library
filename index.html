@@ -11,10 +11,25 @@
     <div class="header">
         <h1>Library</h1>
     </div>
-    <div class="body">
-        <button id="add-book">Add a book</button>
-        <div class="card-container"></div>
-        
+    <div class="body">        
+        <section class="modal hidden">
+            <div class="flex">
+                <button class="btn-close">X</button>
+            </div>
+            <div>
+                <h3 class="new-book">Add a new book!</h3>
+            </div>
+            <input type="book-title" id="book-title" placeholder="title"/>
+            <input type="book-author" id="book-author" placeholder="author"/>
+            <input type="book-pages" id="book-pages" placeholder="number of pages"/>
+            <div class="book-read-div">
+                <button id="book-read" class="btn-read">Read</button>
+            </div>
+            <button class="btn">submit</button>
+        </section>    
+        <div class="overlay hidden"></div>
+        <button id="add-book" class="btn btn-open">Add a book</button>
+
     </div>
     <div class="footer">
         <a href="https://github.com/VendrickNZ">VendrickNZ</a> | <a href="https://vendricknz.github.io/library/">library repository</a>
