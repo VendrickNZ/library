@@ -7,8 +7,10 @@ const closeModalBtn = document.querySelector(".btn-close");
 const bookReadBtn = document.getElementById('book-read');
 
 bookReadBtn.addEventListener('click', () => {
-    bookReadBtn.style.backgroundColor = '#e0163b';
-    bookReadBtn.textContent = "Not read"
+    console.log("?")
+    bookReadBtn.textContent === "Read" ? (bookReadBtn.style.backgroundColor = '#e0163b',
+    bookReadBtn.textContent = "Not read") : (bookReadBtn.style.backgroundColor = '#19c222',
+    bookReadBtn.textContent = "Read");
 })
 
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, false);
