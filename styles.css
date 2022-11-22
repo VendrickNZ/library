@@ -3,6 +3,8 @@ html {
     position: relative;
     min-height: 100%;
 }
+
+
 .header {
     display: flex;
     justify-content: center;
@@ -42,7 +44,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     color: #222;
     position: relative;
     min-height: 100vh;
@@ -154,12 +155,23 @@ button {
     display: grid;
     height: 150px;
     width: 200px;
-    grid-template-columns: repeat(6, 350px);
+    grid-template-columns: repeat(4, 350px);
     margin-right: 1200px;
+
 }
 
 .book-div {
     margin: 20px;
     padding: 10px;
-    background-color: red;
+    background-color: #84f0d1;
+    border-radius: 12px;
+}
+
+.removeBtn {
+    font-size: 26px;
+    background-color: #e01646;
+    width: 290px;
+    padding: 5px;
+    margin-top: 30px;
+    border-radius: 6px;
 }
