@@ -57,28 +57,41 @@ function addBookToLibrary(book) {
 let readBook = (read) => read ? `Has read` : `Has not read`;
 
 function displayNewBook(book) {
-    console.log("fuck");
     const newBookToDisplay = document.createElement('div');
     const newBookTitle = document.createElement('h2');
     const newBookAuthor = document.createElement('h2');
     const newBookPages = document.createElement('h2');
     const newBookRead = document.createElement('h2');
+    const removeBtn = document.createElement('button');
     newBookTitle.textContent = book.title;
     newBookAuthor.textContent = book.author;
     newBookPages.textContent = `Number of pages: ${book.pages}`;
     newBookRead.textContent = readBook(book.read);
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener('click', () => {
+
+    })
     newBookToDisplay.classList.add('book-div');
     newBookTitle.classList.add('bookAttributes');
     newBookAuthor.classList.add('bookAttributes');
     newBookPages.classList.add('bookAttributes');
     newBookRead.classList.add('bookAttributes');
+    removeBtn.classList.add('removeBtn');
     displayedBooks.appendChild(newBookToDisplay);
     newBookToDisplay.appendChild(newBookTitle);
     newBookToDisplay.appendChild(newBookAuthor);
     newBookToDisplay.appendChild(newBookPages);
     newBookToDisplay.appendChild(newBookRead);
+    newBookToDisplay.appendChild(removeBtn);
 
+}
 
+function removeBook(title) {
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].title === title) {
+            myLibrary.pop(myLibrary[i]);
+        }
+    }
 }
 
 function createBook() {
