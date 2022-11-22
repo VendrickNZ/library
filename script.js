@@ -1,3 +1,4 @@
+let myLibrary = [];
 const cardContainer = document.querySelector(".card-container");
 const addNewBook = document.getElementById('add-book');
 const modal = document.querySelector(".modal");
@@ -5,13 +6,10 @@ const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 const bookReadBtn = document.getElementById('book-read');
+const submitBtn = document.getElementById('submit');
+const displayedBooks = document.querySelector('.displayed-books');
 
-bookReadBtn.addEventListener('click', () => {
-    console.log("?")
-    bookReadBtn.textContent === "Read" ? (bookReadBtn.style.backgroundColor = '#e0163b',
-    bookReadBtn.textContent = "Not read") : (bookReadBtn.style.backgroundColor = '#19c222',
-    bookReadBtn.textContent = "Read");
-})
+
 
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, false);
 const thinkingFastAndSlow = new Book("Thinking, Fast and Slow", "Daniel Kahneman", 300, true);
@@ -53,9 +51,50 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    displayNewBook(book);
 }
 
+let readBook = (read) => read ? `Has read` : `Has not read`;
 
+function displayNewBook(book) {
+    console.log("fuck");
+    const newBookToDisplay = document.createElement('div');
+    const newBookTitle = document.createElement('h2');
+    const newBookAuthor = document.createElement('h2');
+    const newBookPages = document.createElement('h2');
+    const newBookRead = document.createElement('h2');
+    newBookTitle.textContent = book.title;
+    newBookAuthor.textContent = book.author;
+    newBookPages.textContent = `Number of pages: ${book.pages}`;
+    newBookRead.textContent = readBook(book.read);
+    newBookToDisplay.classList.add('book-div');
+    newBookTitle.classList.add('bookAttributes');
+    newBookAuthor.classList.add('bookAttributes');
+    newBookPages.classList.add('bookAttributes');
+    newBookRead.classList.add('bookAttributes');
+    displayedBooks.appendChild(newBookToDisplay);
+    newBookToDisplay.appendChild(newBookTitle);
+    newBookToDisplay.appendChild(newBookAuthor);
+    newBookToDisplay.appendChild(newBookPages);
+    newBookToDisplay.appendChild(newBookRead);
+
+
+}
+
+function createBook() {
+    let bookTitle = document.getElementById('book-title').value;
+    let bookAuthor = document.getElementById('book-author').value;
+    let bookPages = document.getElementById('book-pages').value;
+    let bookRead = document.getElementById('book-read').textContent;
+
+    if ((typeof(bookTitle) === String) && (typeof(bookAuthor) === String) && !(isNaN(bookPages))) {
+        alert("Only letters and spaces allowed for title and author, only numbers allowed for the number of pages.")
+        return
+    }
+
+    bookRead == "Not read" ? addBookToLibrary(new Book(bookTitle, bookAuthor, bookPages, true)) :
+    addBookToLibrary(new Book(bookTitle, bookAuthor, bookPages, false))
+}
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !modal.classList.contains("hidden")) {
@@ -72,15 +111,24 @@ addNewBook.addEventListener("click", () => {
     createCard();
 })
 
-let myLibrary = [];
+
+submitBtn.addEventListener('click', () => {
+    createBook();
+})
+
+bookReadBtn.addEventListener('click', () => {
+    bookReadBtn.textContent === "Read" ? (bookReadBtn.style.backgroundColor = '#e0163b',
+    bookReadBtn.textContent = "Not read") : (bookReadBtn.style.backgroundColor = '#19c222',
+    bookReadBtn.textContent = "Read");
+})
 
 
 
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(thinkingFastAndSlow);
-addBookToLibrary(toKillAMockingbird);
+// addBookToLibrary(theHobbit);
+// addBookToLibrary(thinkingFastAndSlow);
+// addBookToLibrary(toKillAMockingbird);
 
-for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i].title);
-}
+// for (let i = 0; i < myLibrary.length; i++) {
+//     console.log(myLibrary[i].title);
+// }

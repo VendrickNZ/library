@@ -12,6 +12,7 @@ html {
 .body {
     display: flex;
     justify-content: center;
+    
 }
 
 .footer {
@@ -147,4 +148,18 @@ button {
 
 .hidden {
     display: none;
+}
+
+.displayed-books {
+    display: grid;
+    height: 150px;
+    width: 200px;
+    grid-template-columns: repeat(6, 350px);
+    margin-right: 1200px;
+}
+
+.book-div {
+    margin: 20px;
+    padding: 10px;
+    background-color: red;
 }
