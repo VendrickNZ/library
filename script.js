@@ -69,7 +69,7 @@ function displayNewBook(book) {
     newBookRead.textContent = readBook(book.read);
     removeBtn.textContent = "Remove";
     removeBtn.addEventListener('click', () => {
-
+        newBookToDisplay.remove();
     })
     newBookToDisplay.classList.add('book-div');
     newBookTitle.classList.add('bookAttributes');
